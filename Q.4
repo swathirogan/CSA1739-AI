@@ -1,0 +1,43 @@
+BEGIN
+
+INPUT starting_location
+INPUT destination
+
+DISPLAY "Select Cab Type"
+DISPLAY "1. Mini"
+DISPLAY "2. Micro"
+DISPLAY "3. Sedan"
+DISPLAY "4. Shared"
+DISPLAY "5. Prime"
+
+INPUT cab_type
+
+IF cab_type is available THEN
+    FIND nearest available cab
+    CALCULATE route
+    CALCULATE estimated fare
+
+    DISPLAY cab details
+    DISPLAY estimated fare
+    DISPLAY estimated travel time
+
+    INPUT confirmation
+
+    IF confirmation = YES THEN
+        BOOK cab
+        START journey
+
+        WHILE destination not reached
+            FOLLOW route
+        END WHILE
+
+        DISPLAY "Destination reached"
+    ELSE
+        DISPLAY "Booking cancelled"
+    END IF
+
+ELSE
+    DISPLAY "Cab not available"
+END IF
+
+END
